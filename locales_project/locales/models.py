@@ -89,6 +89,7 @@ class Empresas(models.Model):
     id_clasificacion_empresa = models.ForeignKey('ClasificacionesEmpresas', models.DO_NOTHING, db_column='id_clasificacion_empresa')
 
     class Meta:
+        managed = False
         db_table = 'empresas'
     
     def __str__(self):
