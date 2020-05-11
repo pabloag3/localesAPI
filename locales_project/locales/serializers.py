@@ -53,3 +53,11 @@ class EmpresasSerializer(serializers.ModelSerializer):
             'user_profile': {'read_only': True},
             # 'id_clasificacion_empresa': {'read_only': True}
         }
+
+
+class EmpresasMedidasSerializer(serializers.ModelSerializer):
+    """Serializar las medidas y las empresas en conjunto"""
+
+    class Meta:
+        model = models.EmpresasMedidas
+        fields = ('id_empresa', 'id_medida_sanitaria')

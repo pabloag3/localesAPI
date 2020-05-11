@@ -69,3 +69,19 @@ class EmpresasViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Sets the user profile to the logged in user"""
         serializer.save(user_profile=self.request.user)
+
+
+class EmpresasMedidasViewSet(viewsets.ModelViewSet):
+
+    serializer_class = serializers.EmpresasMedidasSerializer
+    authentication_classes = (TokenAuthentication,)
+    queryset = models.EmpresasMedidas.objects.all()
+    permission_classes = (
+        IsAuthenticatedOrReadOnly,
+    )
+    search_fields = ('empresa',)
+
+    # def list(self, request):
+    #     empresa = self.request.query_params.get('empresa')
+    #     queryset = models.EmpresasMedidas.objects.filter(id_empresa=empresa)
+    #     return Response({'empresaMedidas': queryset})
