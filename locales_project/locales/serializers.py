@@ -32,7 +32,7 @@ class ClasificacionesEmpresasSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.ClasificacionesEmpresas
-        fields = ('id_clasificacion_empresa', 'descripcion')
+        fields = '__all__'
 
 
 class MedidasSanitariasSerializer(serializers.ModelSerializer):
@@ -40,7 +40,7 @@ class MedidasSanitariasSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.MedidasSanitarias
-        fields = ('id_medida_sanitaria', 'descripcion')
+        fields = '__all__'
 
 
 class EmpresasSerializer(serializers.ModelSerializer):
@@ -48,7 +48,7 @@ class EmpresasSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Empresas
-        fields = ('id_empresa', 'user_profile', 'descripcion', 'direccion', 'longitud', 'latitud', 'id_clasificacion_empresa')
+        fields = '__all__'
         extra_kwargs = {
             'user_profile': {'read_only': True},
             # 'id_clasificacion_empresa': {'read_only': True}
@@ -60,4 +60,4 @@ class EmpresasMedidasSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.EmpresasMedidas
-        fields = ('id_empresa', 'id_medida_sanitaria')
+        fields = '__all__'

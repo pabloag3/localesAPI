@@ -7,7 +7,6 @@ from django.conf import settings
 import datetime
 
 
-# Create your models here.
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
 
@@ -98,13 +97,13 @@ class Empresas(models.Model):
 
 
 class EmpresasMedidas(models.Model):
-    id_medida_sanitaria = models.OneToOneField('MedidasSanitarias', models.DO_NOTHING, db_column='id_medida_sanitaria', primary_key=True)
-    id_empresa = models.ForeignKey(Empresas, models.DO_NOTHING, db_column='id_empresa')
+    cod_empresa_medida = models.AutoField(primary_key=True)
+    id_medida_sanitaria = models.ForeignKey('MedidasSanitarias', models.DO_NOTHING, db_column='id_medida_sanitaria')
+    id_empresa = models.ForeignKey('Empresas', models.DO_NOTHING, db_column='id_empresa')
 
     class Meta:
         managed = False
         db_table = 'empresas_medidas'
-        unique_together = (('id_medida_sanitaria', 'id_empresa'),)
 
 
 class ClasificacionesEmpresas(models.Model):
