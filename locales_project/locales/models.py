@@ -118,7 +118,7 @@ class ClasificacionesEmpresas(models.Model):
     def __str__(self):
         """Return the model as a string"""
         # return self.descripcion
-        return '%d: %s' % (self.id_clasificacion_empresa, self.descripcion)
+        return self.descripcion
 
 
 class MedidasSanitarias(models.Model):

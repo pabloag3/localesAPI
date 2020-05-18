@@ -46,13 +46,17 @@ class MedidasSanitariasSerializer(serializers.ModelSerializer):
 class EmpresasSerializer(serializers.ModelSerializer):
     """Serializar las empresas"""
 
+    clasificacion_empresa = serializers.SerializerMethodField()
+
     class Meta:
         model = models.Empresas
-        fields = '__all__'
+        fields =  ['id_empresa', 'descripcion', 'direccion', 'longitud', 'latitud', 'id_clasificacion_empresa', 'clasificacion_empresa']
         extra_kwargs = {
             'user_profile': {'read_only': True},
-            # 'id_clasificacion_empresa': {'read_only': True}
         }
+    
+    def get_clasificacion_empresa(self, obj):
+        return obj.id_clasificacion_empresa.descripcion
 
 
 class EmpresasMedidasSerializer(serializers.ModelSerializer):
