@@ -27,7 +27,7 @@ SECRET_KEY = '8^r60!)vs8jz6$2ak$xvf$3-ozj0%#6*$s7un^5e!ff&kw+*8$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -187,3 +187,5 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
+
+APPEND_SLASH = False
