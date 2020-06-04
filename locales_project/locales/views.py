@@ -23,6 +23,13 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     search_fields = ['first_name', 'last_name', 'email',]
     ordering_fields = ['first_name', 'last_name', 'email']
 
+    # def set_password(self, request, pk=None):
+    #     if request.method == 'PUT':
+    #         user = self.get_object()
+    #         user.set_password(user.password)
+    #         user.save()
+    #         return Response({'status': 'password set'})
+
 
 class UserLoginApiView(ObtainAuthToken):
    """Handle creating user authentication tokens"""
@@ -83,7 +90,7 @@ class EmpresasMedidasViewSet(viewsets.ModelViewSet):
         IsAuthenticatedOrReadOnly,
     )
     filter_backends = [filters.SearchFilter]
-    search_fields = ['id_empresa',]
+    search_fields = ['id_empresa__id_empresa',]
 
     # def list(self, request):
     #     empresa = self.request.query_params.get('empresa')
