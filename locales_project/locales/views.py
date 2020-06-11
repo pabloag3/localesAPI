@@ -90,6 +90,7 @@ class EmpresasMedidasViewSet(viewsets.ModelViewSet):
         IsAuthenticatedOrReadOnly,
     )
     filter_backends = [filters.SearchFilter]
+    # la busqueda se realiza pasando parametro ?search= en la url
     search_fields = ['id_empresa__id_empresa',]
 
     # def list(self, request):
