@@ -63,6 +63,7 @@ class EmpresasMedidasSerializer(serializers.ModelSerializer):
     """Serializar las medidas y las empresas en conjunto"""
 
     medida_sanitaria = serializers.SerializerMethodField()
+    empresa = serializers.SerializerMethodField()
 
     class Meta:
         model = models.EmpresasMedidas
@@ -70,3 +71,6 @@ class EmpresasMedidasSerializer(serializers.ModelSerializer):
 
     def get_medida_sanitaria(self, obj):
         return obj.id_medida_sanitaria.descripcion
+
+    def get_empresa(self, obj):
+        return obj.id_empresa.descripcion
